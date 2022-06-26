@@ -1,0 +1,11 @@
+.special-bg {
+    background-color: #673ab7;
+}
+
+.special-font-color {
+    color: whitesmoke!important;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: whitesmoke;
+}
