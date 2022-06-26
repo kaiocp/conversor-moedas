@@ -1,4 +1,7 @@
-.masthead {
-    background-size: cover;
-    min-height: 100vh;
+.imagem-home {
+    max-width: 200px;
+}
+
+* {
+    font-family: var(--font-karla)!important;
 }

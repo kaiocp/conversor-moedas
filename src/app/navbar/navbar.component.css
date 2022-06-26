@@ -9,3 +9,7 @@
 .custom-toggler.navbar-toggler {
     border-color: whitesmoke;
 }
+
+.nav-title {
+    font-family: var(--font-pt-mono)!important;
+}
