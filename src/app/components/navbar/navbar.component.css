@@ -1,9 +1,10 @@
 .special-bg {
-    background-color: #673ab7;
+    background-color: var(--deep-purpble);
 }
 
 .special-font-color {
     color: whitesmoke!important;
+    transition: .3s;
 }
 
 .custom-toggler.navbar-toggler {
@@ -12,4 +13,8 @@
 
 .nav-title {
     font-family: var(--font-pt-mono)!important;
+}
+
+.special-font-color:hover {
+    color: var(--amber)!important;
 }

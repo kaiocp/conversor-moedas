@@ -3,6 +3,8 @@
 :root {
     --font-karla: 'Karla', sans-serif;
     --font-pt-mono: 'PT Mono', monospace;
+    --amber: #ffd740;
+    --deep-purpble: #673ab7;
 }
 
 html,
