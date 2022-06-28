@@ -10,10 +10,10 @@ export class ExchangeRateApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getSymbols(): Observable<any> { // considerar implementar uma interface aqui
+  public getSymbols(): Observable<any> { // considerar implementar interface aqui
     return this.http.get(`${this.url}symbols`).pipe(
       res => res,
-      error => error
+      error => error,
       )
   }
 }
