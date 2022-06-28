@@ -18,3 +18,7 @@
 .special-font-color:hover {
     color: var(--amber)!important;
 }
+
+.active {
+    color: var(--amber)!important;
+}

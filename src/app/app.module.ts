@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SymbolsComponent
+    SymbolsComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
