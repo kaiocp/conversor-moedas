@@ -16,7 +16,7 @@ export class SymbolsComponent {
   dataSource!: MatTableDataSource<Symbols>;
   symbolsList: any;
 
-  @ViewChild(MatPaginator)  paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private exchangeRateApiService: ExchangeRateApiService) {
