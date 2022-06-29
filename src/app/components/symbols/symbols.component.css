@@ -1,9 +1,12 @@
+* {
+    font-family: var(--font-karla)!important;
+}
+
 table {
     width: 100%;
 }
 
 .mat-form-field {
-    margin-top: 5rem;
     font-size: 14px;
     width: 100%;
 }
