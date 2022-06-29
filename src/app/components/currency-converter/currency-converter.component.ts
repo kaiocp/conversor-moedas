@@ -65,7 +65,6 @@ export class CurrencyConverterComponent implements OnInit {
         'USD',
         (this.conversionForm.value.amount).toFixed(2)
       ).subscribe((data) => {
-
         this.fetchData(
           this.conversionForm.value.originCurrency,
           this.conversionForm.value.finalCurrency,
