@@ -4,5 +4,6 @@ export interface Conversion {
   from_amount: number,
   to_currency: string,
   result: number,
-  rate: number
+  rate: number,
+  high: boolean
 }

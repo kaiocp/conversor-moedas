@@ -28,22 +28,52 @@ export class CurrencyConverterComponent implements OnInit {
     this.service.getSymbols().subscribe((data) => {
       this.symbols = Object.values(data.symbols);
     })
+
+  }
+
+  fetchData(from: string, to: string, amount: number, highAmount: any) {
+    this.service.getConversion(from, to, amount).subscribe((data) => {
+      this.conversion = {
+        date: new Date,
+        from_currency: from,
+        from_amount: amount,
+        to_currency: to,
+        result: (data.result).toFixed(2),
+        rate: (data.info.rate).toFixed(2),
+        high: this.setHighAmount(highAmount)
+        }
+      }
+    )
+  }
+
+  setHighAmount(amount: number): boolean {
+    return amount > 10000;
   }
 
   handleSubmit() {
-    this.service.getConversion(
-      this.conversionForm.value.originCurrency,
-      this.conversionForm.value.finalCurrency,
-      (this.conversionForm.value.amount).toFixed(2)
-    ).subscribe((data) => {
-      this.conversion = {
-        date: new Date,
-        from_currency: this.conversionForm.value.originCurrency,
-        from_amount: (this.conversionForm.value.amount).toFixed(2),
-        to_currency: this.conversionForm.value.finalCurrency,
-        result: (data.result).toFixed(2),
-        rate: (data.info.rate).toFixed(2)
-      }
-    })
+    if (this.conversionForm.value.originCurrency === 'USD') {
+      this.fetchData(
+        this.conversionForm.value.originCurrency,
+        this.conversionForm.value.finalCurrency,
+        (this.conversionForm.value.amount).toFixed(2),
+        (this.conversionForm.value.amount).toFixed(2)
+      );
+      console.log(this.conversion);
+    } else {
+      this.service.getConversion(
+        this.conversionForm.value.originCurrency,
+        'USD',
+        (this.conversionForm.value.amount).toFixed(2)
+      ).subscribe((data) => {
+
+        this.fetchData(
+          this.conversionForm.value.originCurrency,
+          this.conversionForm.value.finalCurrency,
+          (this.conversionForm.value.amount).toFixed(2),
+          (data.result).toFixed(2)
+        );
+      })
+    }
   }
+
 }
