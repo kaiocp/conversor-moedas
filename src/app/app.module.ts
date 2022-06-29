@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
+import { CommaFloatingPointPipe } from './pipes/comma-floating-point.pipe';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CurrencyConverterComponent } from './components/currency-converter/curr
     HomeComponent,
     SymbolsComponent,
     ErrorPageComponent,
-    CurrencyConverterComponent
+    CurrencyConverterComponent,
+    CommaFloatingPointPipe
   ],
   imports: [
     BrowserModule,

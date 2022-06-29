@@ -1,0 +1,14 @@
+* {
+    font-family: var(--font-karla)!important;
+}
+
+.fields-box {
+    max-width: 500px;
+}
+
+.special-box {
+    border: 1px solid var(--amber)!important;
+    border-radius: 5px;
+    transition: .3s;
+    max-width: 300px;
+}

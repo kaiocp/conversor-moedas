@@ -1,5 +1,8 @@
 export interface Conversion {
-  from: string,
-  to: string,
-  amount: number
+  date: Date,
+  from_currency: string,
+  from_amount: number,
+  to_currency: string,
+  result: number,
+  rate: number
 }

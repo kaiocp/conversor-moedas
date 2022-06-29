@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Conversion } from 'src/app/models/conversion';
 import { Symbols } from 'src/app/models/symbols';
 import { ExchangeRateApiService } from 'src/app/services/exchange-rate-api.service';
 
@@ -10,6 +11,7 @@ import { ExchangeRateApiService } from 'src/app/services/exchange-rate-api.servi
 })
 export class CurrencyConverterComponent implements OnInit {
   symbols!: Array<Symbols>;
+  conversion!: Conversion;
 
   conversionForm: FormGroup = this.formBuilder.group({
     originCurrency: ['', Validators.required],
@@ -29,6 +31,19 @@ export class CurrencyConverterComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log(this.conversionForm.value);
+    this.service.getConversion(
+      this.conversionForm.value.originCurrency,
+      this.conversionForm.value.finalCurrency,
+      (this.conversionForm.value.amount).toFixed(2)
+    ).subscribe((data) => {
+      this.conversion = {
+        date: new Date,
+        from_currency: this.conversionForm.value.originCurrency,
+        from_amount: (this.conversionForm.value.amount).toFixed(2),
+        to_currency: this.conversionForm.value.finalCurrency,
+        result: (data.result).toFixed(2),
+        rate: (data.info.rate).toFixed(2)
+      }
+    })
   }
 }

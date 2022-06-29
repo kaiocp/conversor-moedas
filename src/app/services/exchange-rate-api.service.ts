@@ -6,14 +6,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExchangeRateApiService {
-  public url: string = 'https://api.exchangerate.host/';
+  url: string = 'https://api.exchangerate.host/';
 
   constructor(private http: HttpClient) { }
 
-  public getSymbols(): Observable<any> { // considerar implementar interface aqui
+  getSymbols(): Observable<any> {
     return this.http.get(`${this.url}symbols`).pipe(
       res => res,
-      error => error,
+      error => error
       )
+  }
+
+  getConversion(from: string, to: string, amount: number): Observable<any> {
+    return this.http.get(`${this.url}convert?from=${from}&to=${to}&amount=${amount}`).pipe(
+      res => res,
+      error => error
+    )
   }
 }
