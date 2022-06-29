@@ -1,0 +1,36 @@
+<fieldset class="container">
+    <form [formGroup]="conversionForm" (ngSubmit)="handleSubmit()" class="d-flex justify-content-center align-items-center flex-column">
+        <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <mat-form-field appearance="fill" class="mx-2">
+                <mat-label>Converter de</mat-label>
+                <mat-select required formControlName="originCurrency">
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let symbol of symbols" [value]="symbol.code">
+                        {{symbol.code}} - {{ symbol.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="mx-2">
+                <mat-label>Para</mat-label>
+                <mat-select required formControlName="finalCurrency">
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let symbol of symbols" [value]="symbol.code">
+                        {{symbol.code}} - {{ symbol.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" floatLabel="always" class="mx-2">
+                <mat-label>Valor</mat-label>
+                <input required matInput type="number" min="0.01" step="0.01" class="example-right-align" placeholder="1,99" formControlName="amount">
+                <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button mat-raised-button [disabled]="conversionForm.invalid" color="accent" type="submit">Converter</button>
+        </div>
+    </form>
+
+</fieldset>

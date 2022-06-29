@@ -8,6 +8,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 // components
 import { AppComponent } from './app.component';
@@ -15,6 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     NavbarComponent,
     HomeComponent,
     SymbolsComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    CurrencyConverterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,11 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     MatSortModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
