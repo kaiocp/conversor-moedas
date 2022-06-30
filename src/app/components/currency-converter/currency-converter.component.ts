@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Conversion } from 'src/app/models/conversion';
 import { Symbols } from 'src/app/models/symbols';
+import { DataSharerService } from 'src/app/services/data-sharer.service';
 import { ExchangeRateApiService } from 'src/app/services/exchange-rate-api.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class CurrencyConverterComponent implements OnInit {
 
   constructor(
     private service: ExchangeRateApiService,
+    private dataSharer: DataSharerService,
     private formBuilder: FormBuilder
     ) { }
 
@@ -34,6 +36,7 @@ export class CurrencyConverterComponent implements OnInit {
   fetchData(from: string, to: string, amount: number, highAmount: any) {
     this.service.getConversion(from, to, amount).subscribe((data) => {
       this.conversion = {
+        id: this.dataSharer.makeId(10),
         date: new Date,
         from_currency: from,
         from_amount: amount,
@@ -42,6 +45,7 @@ export class CurrencyConverterComponent implements OnInit {
         rate: (data.info.rate).toFixed(2),
         high: this.setHighAmount(highAmount)
         }
+      this.dataSharer.addItem(this.conversion);
       }
     )
   }

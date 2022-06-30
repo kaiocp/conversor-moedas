@@ -1,0 +1,3 @@
+<div *ngIf="conversionHistory">
+    <p *ngFor="let conversion of conversionHistory">{{ conversion | json }} <button (click)="handleDelete(conversion.id)">del</button></p>
+</div>

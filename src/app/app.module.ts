@@ -21,6 +21,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 import { CommaFloatingPointPipe } from './pipes/comma-floating-point.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { ConversionHistoryComponent } from './components/conversion-history/conversion-history.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ErrorPageComponent,
     CurrencyConverterComponent,
     CommaFloatingPointPipe,
-    FooterComponent
+    FooterComponent,
+    ConversionHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 export interface Conversion {
+  id: string,
   date: Date,
   from_currency: string,
   from_amount: number,
