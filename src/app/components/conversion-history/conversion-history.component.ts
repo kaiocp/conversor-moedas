@@ -1,9 +1,11 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Inject } from '@angular/core';
 import { Conversion } from 'src/app/models/conversion';
 import { DataSharerService } from 'src/app/services/data-sharer.service';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-conversion-history',
@@ -17,9 +19,13 @@ export class ConversionHistoryComponent implements AfterViewInit {
   displayedColumns: string[] = ['data', 'date', 'valor_informado', 'moeda_sel', 'moeda_con', 'result', 'taxa', 'excluir'];
   dataSource!: MatTableDataSource<Conversion>;
 
+  // dialog props
+
+
   constructor(
     private dataSharer: DataSharerService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    public dialog: MatDialog,
   ) { }
 
 
@@ -34,7 +40,6 @@ export class ConversionHistoryComponent implements AfterViewInit {
   }
 
   handleDelete(id: string): void {
-    this.dataSharer.deleteItem(id);
     this.dataSource = new MatTableDataSource(this.conversionHistory);
   }
 
@@ -46,5 +51,14 @@ export class ConversionHistoryComponent implements AfterViewInit {
     }
   }
 
+  openDialog(id: any): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+      data: id
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
 }

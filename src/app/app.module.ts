@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // components
 import { AppComponent } from './app.component';
@@ -23,6 +23,7 @@ import { CurrencyConverterComponent } from './components/currency-converter/curr
 import { CommaFloatingPointPipe } from './pipes/comma-floating-point.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { ConversionHistoryComponent } from './components/conversion-history/conversion-history.component';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ConversionHistoryComponent } from './components/conversion-history/conv
     CurrencyConverterComponent,
     CommaFloatingPointPipe,
     FooterComponent,
-    ConversionHistoryComponent
+    ConversionHistoryComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { ConversionHistoryComponent } from './components/conversion-history/conv
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatIconModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
