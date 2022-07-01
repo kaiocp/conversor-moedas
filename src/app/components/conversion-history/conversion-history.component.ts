@@ -10,7 +10,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 @Component({
   selector: 'app-conversion-history',
   templateUrl: './conversion-history.component.html',
-  styleUrls: ['./conversion-history.component.css']
+  styleUrls: ['./conversion-history.component.scss']
 })
 export class ConversionHistoryComponent implements OnInit, AfterViewInit {
   conversionHistory!: Array<Conversion>;
