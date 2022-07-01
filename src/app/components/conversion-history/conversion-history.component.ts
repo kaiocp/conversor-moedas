@@ -55,9 +55,5 @@ export class ConversionHistoryComponent implements OnInit, AfterViewInit {
       width: '250px',
       data: id
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
-
 }

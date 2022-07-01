@@ -18,12 +18,12 @@ export class DeleteDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNoClick(): void {
+  closeDialog(): void {
     this.dialogRef.close();
   }
   handleDelete() {
     this.dataSharer.deleteItem(this.data);
-    this.onNoClick();
+    this.closeDialog();
   }
 
 }
