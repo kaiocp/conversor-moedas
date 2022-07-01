@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, Inject } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Inject, OnInit } from '@angular/core';
 import { Conversion } from 'src/app/models/conversion';
 import { DataSharerService } from 'src/app/services/data-sharer.service';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -12,7 +12,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
   templateUrl: './conversion-history.component.html',
   styleUrls: ['./conversion-history.component.css']
 })
-export class ConversionHistoryComponent implements AfterViewInit {
+export class ConversionHistoryComponent implements OnInit, AfterViewInit {
   conversionHistory!: Array<Conversion>;
 
   // table props
@@ -31,16 +31,15 @@ export class ConversionHistoryComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.dataSharer.share.subscribe((data) => {
       this.conversionHistory = data
       this.dataSource = new MatTableDataSource(this.conversionHistory);
-      this.dataSource.sort = this.sort;
     });
   }
 
-  handleDelete(id: string): void {
-    this.dataSource = new MatTableDataSource(this.conversionHistory);
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
   }
 
   announceSortChange(sortState: Sort) {
