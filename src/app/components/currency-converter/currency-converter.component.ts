@@ -62,7 +62,6 @@ export class CurrencyConverterComponent implements OnInit {
         (this.conversionForm.value.amount).toFixed(2),
         (this.conversionForm.value.amount).toFixed(2)
       );
-      console.log(this.conversion);
     } else {
       this.service.getConversion(
         this.conversionForm.value.originCurrency,
