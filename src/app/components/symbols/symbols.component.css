@@ -6,6 +6,10 @@ table {
     width: 100%;
 }
 
+.spacing {
+    height: 5rem;
+}
+
 .mat-form-field {
     font-size: 14px;
     width: 100%;
