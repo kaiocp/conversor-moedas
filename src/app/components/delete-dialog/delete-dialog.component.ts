@@ -5,7 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-delete-dialog',
   template: `
-  <h1 mat-dialog-title>Excluir conversão?</h1>
+  <h2 mat-dialog-title>Excluir conversão?</h2>
   <div mat-dialog-actions class="d-flex justify-content-between">
     <button mat-button (click)="closeDialog()">Cancelar</button>
     <button mat-raised-button color="warn" (click)="handleDelete()">Excluir</button>
