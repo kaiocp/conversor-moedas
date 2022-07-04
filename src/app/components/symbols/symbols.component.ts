@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class SymbolsComponent implements OnInit {
   displayedColumns: string[] = ['code', 'description'];
   dataSource!: MatTableDataSource<Symbols>;
-  symbolsList: any;
+  symbolsList!: Array<Symbols>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

@@ -50,7 +50,7 @@ export class ConversionHistoryComponent implements OnInit, AfterViewInit {
     }
   }
 
-  openDialog(id: any): void {
+  openDialog(id: string): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
       data: id
